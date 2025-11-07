@@ -8,7 +8,6 @@ personal/
 
 # Spark outputs
 data/processed/
-data/models/
 spark-warehouse/
 metastore_db/
 
@@ -26,8 +25,12 @@ nohup.out
 # Jupyter
 .ipynb_checkpoints/
 
-# Ignore everything in data/models except metrics.json for reference
-data/models/**/*
+# Models and outputs
+# Ignore all models except key reference files
+data/models/latest_model/metadata
+data/models/latest_model/stages
 !data/models/latest_model/metrics.json
+!data/models/latest_model/coefficients.csv
 
+# Docs (visual assets)
 !docs/**
