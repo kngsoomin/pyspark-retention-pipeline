@@ -107,16 +107,14 @@ pyspark-retention-pipeline/
 > While suitable for retention targeting, further improvements could come from richer behavioral features or non-linear models.
 
 ## Threshold Optimization
-
-![threshold-curve](docs/threshold_curve.png)
+<img src="docs/threshold_curve.png" width=600/>
 
 - As the threshold increases, **recall falls** and **precision rises** (typical trade-off).
 - The **best F1** is reached at **threshold = 0.46** (from `metrics.json`), which balances false positives and false negatives for retention targeting.
 - For campaigns where missing a churner is very costly, consider shifting the threshold slightly **lower** to favor higher recall.
 
 ## Feature Importance
-
-![feature-importance](docs/feature_importance.png)
+<img src="docs/feature_importance.png" width=600/>
 
 - **Blue (negative)** → reduces churn probability (_retention drivers_).
 - **Red (positive)** → increases churn probability (_risk indicators_).
