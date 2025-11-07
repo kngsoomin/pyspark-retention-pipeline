@@ -39,7 +39,7 @@ def plot_signed_bars(df: pd.DataFrame, out_path: Path, top: int = 0) -> None:
     for i, (coef, bar) in enumerate(zip(df["coefficient"], bars)):
         label = f"{coef:.2f}"
         width = bar.get_width()
-        inside = abs(coef) >= 0.5
+        inside = abs(coef) >= 0.3
         if coef > 0:
             # Positive side
             x = width - 0.02 if inside else width + 0.02

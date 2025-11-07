@@ -49,6 +49,36 @@ Customers were segmented into **three behavioral groups** — _active repeat, ch
 
 - **Serving:** A lightweight FastAPI service provides batch and single-customer prediction endpoints.
 
+## Project Structure
+
+```graphql
+pyspark-retention-pipeline/
+├── data/
+│   ├── raw/                 # Original Kaggle CSV
+│   ├── processed/           # Parquet feature tables and train/val/test splits
+│   └── models/
+│       └── latest_model/    # Trained Spark PipelineModel + metrics.json
+│
+├── docs/
+│   ├── threshold_curve.png
+│   ├── feature_importance.png
+│
+├── notebooks/
+│   └── eda_online_retail.ipynb   # Exploratory data analysis and feature rationale
+│
+├── pipeline/
+│   ├── etl.py               # Data cleaning, feature engineering, labeling
+│   ├── train.py             # Model training + cross-validation
+│   ├── eval.py              # Evaluation on test set
+│   └── serve_api.py         # FastAPI inference service
+│
+├── Makefile
+├── requirements.txt
+├── .gitignore
+└── README.md
+
+```
+
 ## Key Design Decisions
 
 - **Time-based feature generation (cutoff control)**  
@@ -130,4 +160,3 @@ Response:
 ```
 
 > The API reuses the Spark `PipelineModel` for end-to-end reproducibility from feature preprocessing to prediction.
-# pyspark-retention-pipeline

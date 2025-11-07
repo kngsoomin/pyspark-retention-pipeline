@@ -65,7 +65,7 @@ coefs:
 	@head -n 10 $(MODEL_DIR)/coefficients.csv || echo "coefficients.csv not found"
 
 serve:
-	uvicorn serve_api:app --reload --port $(PORT)
+	uvicorn pipeline.serve_api:app --reload --port $(PORT)
 
 curl_predict:
 	@curl -s -X POST http://localhost:$(PORT)/predict \
