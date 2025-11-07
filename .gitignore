@@ -1,0 +1,33 @@
+# Python / Env
+__pycache__/
+*.py[cod]
+venv/
+.env/
+.venv/
+personal/
+
+# Spark outputs
+data/processed/
+data/models/
+spark-warehouse/
+metastore_db/
+
+# Logs / temp
+*.log
+*.tmp
+*.bak
+nohup.out
+
+# IDE / OS
+.DS_Store
+.vscode/
+.idea/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Ignore everything in data/models except metrics.json for reference
+data/models/**/*
+!data/models/latest_model/metrics.json
+
+!docs/**
